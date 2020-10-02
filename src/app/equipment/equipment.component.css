@@ -1,0 +1,36 @@
+.list-photo {
+    display: flex;
+    height: 150px;
+    width: 150px;
+}
+
+.no-photo {
+    background: #eee;
+    color: #333;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-photo img {
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0 auto;
+}
+
+.list-content {
+    padding: 0 2rem;
+}
+
+.list-title {
+    font-size: 24px;
+}
+
+.list-tags span {
+    font-size: 14px;
+    padding: 8px;
+    margin-right: 1rem;
+}
+
+.list-warning {
+    background: yellow;
+}

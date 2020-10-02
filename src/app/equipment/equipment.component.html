@@ -1,0 +1,48 @@
+<div class="container">
+    <ul class="list-group">
+        <li *ngFor="let equipments of equipment" class="list-group-item">
+            <div
+                class="d-flex flex-row"
+                [class.list-warning]="
+                    !equipments.equipment_type || !equipments.manufacturer
+                "
+            >
+                <div class="flex-shrink-1">
+                    <ng-container
+                        *ngIf="
+                            !equipments.equipment_photos ||
+                                !equipments.equipment_photos?.length;
+                            else thumbnail
+                        "
+                        ><div class="list-photo no-photo">
+                            NO PHOTO
+                        </div></ng-container
+                    >
+                    <ng-template #thumbnail>
+                        <div class="list-photo">
+                            <img
+                                class="img-thumbnail"
+                                [src]="
+                                    equipments.equipment_photos[0]
+                                        ?.thumbnail_url
+                                "
+                                [alt]="equipments.description"
+                            />
+                        </div>
+                    </ng-template>
+                </div>
+                <div class="list-content">
+                    <div class="list-title">{{ equipments.description }}</div>
+                    <div class="list-tags">
+                        <span class="badge badge-primary">{{
+                            equipments.manufacturer
+                        }}</span>
+                        <span class="badge badge-primary">{{
+                            equipments.model_number
+                        }}</span>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
